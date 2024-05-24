@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #c3b0ca;
+    text-align: center;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.rules-container {
+    padding: 10px 0;
+}
+
+.rules-container ul {
+    list-style-type: none;
+}
+
+.rules-container p {
+    margin: 10px 0;
+}
+
+#game {
+    width: 50vmin;
+    height: 40vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* transform: rotate(60deg); */
+}
+
+#game img {
+    width: 35%;
+    border-radius: 50%;
+    /* transition: 0.5s all ease; */
+}
+
+/* #game img:hover {
+    transform: scale(1.1);
+} */
+
+#game img:nth-of-type(1) {
+    margin-right: 3rem;
+}
+
+#game img:nth-of-type(2) {
+    order: 3;
+}
+
+.rotating {
+    animation: rotateContinuously 0.3s linear infinite;
+}
+
+@keyframes rotateContinuously {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#score-box {
+    width: 50vmin;
+    height: 15vmin;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    /* text-align: center; */
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+h2 {
+    background-color: rgb(62, 100, 138);
+    color: #fff;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+.button {
+    background-color: lightslategray;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+}
+.hide {
+    display: none;
+}
+
+@media (max-width: 460px) {
+    h1 {
+        font-size: 2.3rem;
+    }
+    details {
+        font-size: 1.3rem;
+    }
+    #game {
+        width: 70vmin;
+        height: 50vmin;
+    }
+    #score-box {
+        width: 70vmin;
+        font-size: 1.5rem;
+    }
+    h2 {
+        margin: 0 50px;
+    }
+    .button {
+        font-size: 1.7rem;
+        padding: 20px;
+        border-radius: 20px;
+    }
+}
+
+@media (width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+    details {
+        font-size: 1.5rem;
+    }
+    #game {
+        width: 70vmin;
+        height: 50vmin;
+    }
+    #score-box {
+        width: 70vmin;
+        font-size: 1.7rem;
+    }
+    h2 {
+        font-size: 1.7rem;
+        margin: 0 50px;
+    }
+    .button {
+        font-size: 1.7rem;
+        padding: 20px;
+        border-radius: 20px;
+    }
+}

@@ -17,6 +17,7 @@ const choices = ["rock", "paper", "scissor"];
 let uScore = 0;
 let cScore = 0;
 
+
 descriptionBox.addEventListener("click", () => {
     gameBox.classList.toggle("hide");
     if (gameBox.classList.contains("hide")) {
@@ -26,17 +27,34 @@ descriptionBox.addEventListener("click", () => {
     }
 })
 
+const disableClick = (event) => {
+   event.target.removeEventListener("click", disableClick);
+}
 
 allImage.forEach((image) => {
     image.addEventListener("click", () => {
         const userChoice = image.getAttribute("id");
-        console.log("cliked", userChoice)
+        console.log("cliked", userChoice);
+        if (userChoice === "rock") {
+            paper.style.display = "none";
+            scissor.style.display = "none";
+            console.log("hidden", paper, scissor);
+        } else if (userChoice === "scissor") {
+            rock.style.display = "none";
+            paper.style.display = "none";
+        } else if (userChoice === "paper") {
+            rock.style.display = "none";
+            scissor.style.display = "none";
+        }
         image.classList.toggle("rotating"); // it is toggling the class for the animation which continuously rotate at 360deg
 
         // this time interval is set to make delay on result producing
         setTimeout(() => {
             image.classList.remove("rotating");
-            playGame(userChoice);  //all the game play will be played in this time interval
+            playGame(userChoice); 
+            rock.style.display = "flex";
+            paper.style.display = "flex";
+            scissor.style.display = "flex"; //all the game play will be played in this time interval
         }, 1000);                  // 1000 is passed for the delay
     })
 })
@@ -135,7 +153,6 @@ const showWinner = (userWin) => {
 
 const playGame = (userChoice) => {
     const computerChoice = genComputerChoice();
-
     console.log("comp", computerChoice)
 
     let userWin = false;
